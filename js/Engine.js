@@ -68,6 +68,16 @@ class Engine {
   // This method is not implemented correctly, which is why
   // the burger never dies. In your exercises you will fix this method.
   isPlayerDead = () => {
-    return false;
+    console.log(this.player)
+    console.log(this.enemies)
+    let hasCollided = false
+    this.enemies.forEach(el => {
+      if (el.x === this.player.x && el.y >= this.player.y - (ENEMY_HEIGHT - 10)){
+        hasCollided = true
+      }
+    })
+    
+    return hasCollided
+    // return false;
   };
 }
