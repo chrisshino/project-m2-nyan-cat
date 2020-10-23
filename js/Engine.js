@@ -16,8 +16,13 @@ class Engine {
     this.enemies = [];
     // We add the background image to the game
     addBackground(this.root);
-  }
 
+    this.startTime = Date.now()
+
+    this.timeOnScreen = new Timer(this.root, 0)
+  }
+  
+  
   // The gameLoop will run every few milliseconds. It does several things
   //  - Updates the enemy positions
   //  - Detects a collision between the player and any enemy
@@ -29,10 +34,16 @@ class Engine {
     if (this.lastFrame === undefined) {
       this.lastFrame = new Date().getTime();
     }
+    
+    let timeInput = Math.floor((Date.now() - this.startTime)/1000)
+
+    this.timeOnScreen.update(timeInput)
+
 
     let timeDiff = new Date().getTime() - this.lastFrame;
 
     this.lastFrame = new Date().getTime();
+
     // We use the number of milliseconds since the last call to gameLoop to update the enemy positions.
     // Furthermore, if any enemy is below the bottom of our game, its destroyed property will be set. (See Enemy.js)
     this.enemies.forEach((enemy) => {
@@ -46,14 +57,23 @@ class Engine {
       return !enemy.destroyed;
     });
 
-    const imageArray = ['./images/tiff.png', './images/rich.png', './images/diana.png']
+    // const imageArray = ['./images/tiff.png', './images/rich.png', './images/diana.png']
     // We need to perform the addition of enemies until we have enough enemies.
     while (this.enemies.length < MAX_ENEMIES) {
       // We find the next available spot and, using this spot, we create an enemy.
       // We add this enemy to the enemies array
       const spot = nextEnemySpot(this.enemies);
-      const theImage = imageArray[Math.round(Math.random() * 2)]
-      this.enemies.push(new Enemy(this.root, spot, theImage));
+      const theImage = Math.round(Math.random() * 2)
+      if (theImage === 0){
+        this.enemies.push(new Tiff(this.root, spot));  
+      }
+      else if (theImage === 1){
+        this.enemies.push(new Diana(this.root, spot))
+      }
+      else if (theImage === 2 ){
+        this.enemies.push(new Rich(this.root, spot))
+      }
+      // this.enemies.push(new Enemy(this.root, spot, theImage));
     }
 
     // We check if the player is dead. If he is, we alert the user
@@ -70,8 +90,7 @@ class Engine {
   // This method is not implemented correctly, which is why
   // the burger never dies. In your exercises you will fix this method.
   isPlayerDead = () => {
-    console.log(this.player)
-    console.log(this.enemies)
+
     let hasCollided = false
     this.enemies.forEach(el => {
       if (el.x === this.player.x && el.y >= this.player.y - (ENEMY_HEIGHT - 10)){
