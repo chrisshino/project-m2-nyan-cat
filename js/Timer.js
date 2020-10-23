@@ -3,11 +3,12 @@ class Timer {
     this.root = theRoot;
     this.time = time;
 
-    this.domElement = document.createElement("h3");
+    this.domElement = document.createElement("h1");
     this.domElement.style.position = "absolute";
     this.domElement.style.right = `${GAME_WIDTH - 30}px`;
     this.domElement.style.top = `0px`;
     this.domElement.style.zIndex = 6;
+    this.domElement.style.color = 'white'
     theRoot.appendChild(this.domElement)
   }
 
