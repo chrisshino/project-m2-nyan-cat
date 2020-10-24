@@ -38,6 +38,17 @@ class Engine {
 
     this.timeOnScreen.update(timeInput)
 
+    if (this.timeOnScreen.domElement.innerText > 5 && this.timeOnScreen.domElement.innerText < 11 ) {
+      this.player.domElement.src = './images/css.png'
+    }
+    else if (this.timeOnScreen.domElement.innerText > 10 && this.timeOnScreen.domElement.innerText < 16) {
+      this.player.domElement.src = './images/js.png'
+    }
+    else if (this.timeOnScreen.domElement.innerText > 15) {
+      this.player.domElement.src = './images/react.png'
+    }
+    
+
 
     let timeDiff = new Date().getTime() - this.lastFrame;
 
@@ -72,6 +83,7 @@ class Engine {
       else if (theImage === 2 ){
         this.enemies.push(new Rich(this.root, spot))
       }
+      console.log(this.enemies)
       // this.enemies.push(new Enemy(this.root, spot, theImage));
     }
 
