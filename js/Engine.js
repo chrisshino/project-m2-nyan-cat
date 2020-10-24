@@ -18,7 +18,6 @@ class Engine {
     addBackground(this.root);
 
     this.startTime = Date.now()
-
     this.timeOnScreen = new Timer(this.root, 0)
   }
   

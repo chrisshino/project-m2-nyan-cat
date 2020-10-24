@@ -5,7 +5,7 @@ class Timer {
 
     this.domElement = document.createElement("h1");
     this.domElement.style.position = "absolute";
-    this.domElement.style.right = `${GAME_WIDTH - 30}px`;
+    this.domElement.style.left = `${GAME_WIDTH - 30}px`;
     this.domElement.style.top = `0px`;
     this.domElement.style.zIndex = 6;
     this.domElement.style.color = 'white'
