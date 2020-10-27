@@ -31,8 +31,8 @@ let startingImg = document.getElementById("starting");
 let cloud = document.querySelector('.cloud')
 
 function startGame() {
+  gameEngine.startTime = Date.now();
   gameEngine.gameLoop();
-  gameEngine.startTime = Date.now()
   startingImg.style.display = "block";
   startBtn.style.display = "none";
   cloud.style.display = 'none'
