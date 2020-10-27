@@ -17,11 +17,10 @@ class Engine {
     // We add the background image to the game
     addBackground(this.root);
 
-    this.startTime = Date.now()
-    this.timeOnScreen = new Timer(this.root, 0)
+    this.startTime = Date.now();
+    this.timeOnScreen = new Timer(this.root, 0);
   }
-  
-  
+
   // The gameLoop will run every few milliseconds. It does several things
   //  - Updates the enemy positions
   //  - Detects a collision between the player and any enemy
@@ -33,22 +32,24 @@ class Engine {
     if (this.lastFrame === undefined) {
       this.lastFrame = new Date().getTime();
     }
-    
-    let timeInput = Math.floor((Date.now() - this.startTime)/1000)
 
-    this.timeOnScreen.update(timeInput)
+    let timeInput = Math.floor((Date.now() - this.startTime) / 1000);
 
-    if (this.timeOnScreen.domElement.innerText > 5 && this.timeOnScreen.domElement.innerText < 11 ) {
-      this.player.domElement.src = './images/css.png'
-    }
-    else if (this.timeOnScreen.domElement.innerText > 10 && this.timeOnScreen.domElement.innerText < 16) {
-      this.player.domElement.src = './images/js.png'
-    }
-    else if (this.timeOnScreen.domElement.innerText > 15) {
-      this.player.domElement.src = './images/react.png'
-    }
-    
+    this.timeOnScreen.update(timeInput);
 
+    if (
+      this.timeOnScreen.domElement.innerText > 5 &&
+      this.timeOnScreen.domElement.innerText < 11
+    ) {
+      this.player.domElement.src = "./images/css.png";
+    } else if (
+      this.timeOnScreen.domElement.innerText > 10 &&
+      this.timeOnScreen.domElement.innerText < 16
+    ) {
+      this.player.domElement.src = "./images/js.png";
+    } else if (this.timeOnScreen.domElement.innerText > 15) {
+      this.player.domElement.src = "./images/react.png";
+    }
 
     let timeDiff = new Date().getTime() - this.lastFrame;
 
@@ -73,24 +74,24 @@ class Engine {
       // We find the next available spot and, using this spot, we create an enemy.
       // We add this enemy to the enemies array
       const spot = nextEnemySpot(this.enemies);
-      const theImage = Math.round(Math.random() * 2)
-      if (theImage === 0){
-        this.enemies.push(new Tiff(this.root, spot));  
+      const theImage = Math.round(Math.random() * 2);
+      if (theImage === 0) {
+        this.enemies.push(new Tiff(this.root, spot));
+      } else if (theImage === 1) {
+        this.enemies.push(new Diana(this.root, spot));
+      } else if (theImage === 2) {
+        this.enemies.push(new Rich(this.root, spot));
       }
-      else if (theImage === 1){
-        this.enemies.push(new Diana(this.root, spot))
-      }
-      else if (theImage === 2 ){
-        this.enemies.push(new Rich(this.root, spot))
-      }
-      console.log(this.enemies)
+
       // this.enemies.push(new Enemy(this.root, spot, theImage));
     }
 
     // We check if the player is dead. If he is, we alert the user
     // and return from the method (Why is the return statement important?)
     if (this.isPlayerDead()) {
-      window.alert('Game over');
+      window.alert("Game over");
+      clearBtn.style.display = "block";
+      clearBtn.style.zIndex = "1001";
       return;
     }
 
@@ -101,15 +102,17 @@ class Engine {
   // This method is not implemented correctly, which is why
   // the burger never dies. In your exercises you will fix this method.
   isPlayerDead = () => {
-
-    let hasCollided = false
-    this.enemies.forEach(el => {
-      if (el.x === this.player.x && el.y >= this.player.y - (ENEMY_HEIGHT - 10)){
-        hasCollided = true
+    let hasCollided = false;
+    this.enemies.forEach((el) => {
+      if (
+        el.x === this.player.x &&
+        el.y >= this.player.y - (ENEMY_HEIGHT - 10)
+      ) {
+        hasCollided = true;
       }
-    })
-    
-    return hasCollided
+    });
+
+    return hasCollided;
     // return false;
   };
 }

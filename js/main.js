@@ -25,15 +25,22 @@ document.addEventListener("keydown", keydownHandler);
 
 // We call the gameLoop method to start the game
 
-let startBtn = document.getElementById('start-btn')
-
-
-
+let startBtn = document.getElementById("start-btn");
+let clearBtn = document.getElementById("clear-btn");
+let startingImg = document.getElementById("starting");
+let cloud = document.querySelector('.cloud')
 
 function startGame() {
   gameEngine.gameLoop();
+  gameEngine.startTime = Date.now()
+  startingImg.style.display = "block";
+  startBtn.style.display = "none";
+  cloud.style.display = 'none'
 }
 
-
+function restart() {
+  location.reload();
+}
 
 startBtn.addEventListener("click", startGame);
+clearBtn.addEventListener("click", restart);

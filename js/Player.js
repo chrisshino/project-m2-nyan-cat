@@ -17,6 +17,7 @@ class Player {
     // DOM node in a property.
     this.domElement = document.createElement('img');
     this.domElement.src = 'images/player1.png';
+    this.domElement.setAttribute('id', 'starting')
     this.domElement.style.position = 'absolute';
     this.domElement.style.left = `${this.x}px`;
     this.domElement.style.top = ` ${this.y}px`;

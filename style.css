@@ -3,19 +3,24 @@ body {
   padding: 0;
 }
 
-
 .app-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100vh;
   width: 100vw;
+  position: relative;
+  background: url("./images/clouds.jpg");
 }
 
 #app {
   position: relative;
   display: block;
   overflow: hidden;
+  background: #eceff1;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
 }
 
 .button-container {
@@ -25,6 +30,48 @@ body {
   bottom: 0;
   right: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: white;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  position: absolute;
+  top: 80px;
+}
+
+.btn {
+  height: 100px;
+  width: 200px;
+  background: white;
+  border-radius: 50px;
+  border: 5px solid #1C6EA4;
+  position: relative;
+  margin-top: 50px;
+  font-size: 2rem;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  box-shadow: 5px 5px 15px 5px #ffffff;
+}
+
+#starting {
+  display: none;
+}
+
+#clear-btn {
+  display: none;
+}
+
+.cloud {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.3rem;
+  width: 50%;
+  padding: 1rem;
+  background: white;
+  border: 5px solid #1C6EA4;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 5px 5px 15px 5px #ffffff;
 }
