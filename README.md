@@ -2,23 +2,9 @@
 
 <p align="center"><img src="./images/start.png"></p>
 
-# Introduction
-
-This project was designed as a way for you to practice and learn about Object Oriented Programming. A good bit of code has already been provided for you, and it makes for an _almost_ working game.
-
-The project is divided in two parts. In a first part, you will fix and implement some basic functionality. In the second part, you will be able to customize the game as you wish!
-
-Because there is a fair bit of JavaScript in this app, we have split code into more manageable pieces. You wil find all of the code in the `js` folder.
-
-_Because we split the code into many files, we need to add the `<script>` tags in the right order in the `index.html` file._ This is already done for you, but it's important not to change the order.
-
 ## The game
 
-This game is called **I CAN HAZ CHEEZBURGER?!??**. In the game, you play as an anthropomorphic cheeseburger. The only thing you can do is move left or right with the arrows of your keyboard.
-
-The goal of the game is to stay alive as long as possible by avoiding the Nyan Cats who are raining from the sky and trying to _haz_ you. The longer you stay alive, the higher your score!
-
-At the moment, the game is a bit broken. This project will have you first fix the broken game, then add your own features to it. :)
+This game is called the Concordia Coding Game. Essentially, you need to avoid: Diana, Richard, and Tiffany from falling on top of you with a whole bunch of hard new knowledge. The longer you can avoid them by using the left and right arrow keys, the higher your time score in the right corner gets. With the time increasing this allows all the new knowledge to sink in and your character will evolve. From a little html5 all the way into a react frontend master!
 
 ## Instructions
 
