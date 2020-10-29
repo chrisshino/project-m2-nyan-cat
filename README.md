@@ -4,15 +4,11 @@
 
 ## The game
 
-This game is called the Concordia Coding Game. Essentially, you need to avoid: Diana, Richard, and Tiffany from falling on top of you with a whole bunch of hard new knowledge. The longer you can avoid them by using the left and right arrow keys, the higher your time score in the right corner gets. With the time increasing this allows all the new knowledge to sink in and your character will evolve. From a little html5 all the way into a react frontend master!
+This game is called the **Concordia Coding Game**. Essentially, you need to avoid: Diana, Richard, and Tiffany from falling on top of you with a whole bunch of hard new knowledge. The longer you can avoid them by using the left and right arrow keys, the higher your time score in the right corner gets. With the time increasing this allows all the new knowledge to sink in and your character will evolve. From a little html5 all the way into a react frontend master!
 
-## Instructions
+## Gameplay
 
-1. Open the `index.html` file in your browser, and observe what goes on when you load it.
-2. After reading the instructions of the project, **take a look at the provided code**. Don't worry if you don't understand _everything_, but try to get a general feel for what the code is doing. There are extensive comments throughout the code.
-3. Once the provided code has been consulted,go through the Assignment section at your own pace.
-
-## Assignment
+<p align="center"><img src="./images/html-level.png"></p>
 
 ### 1. Let's make the game actually end
 
